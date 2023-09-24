@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "BalloonActor.generated.h"
 
 UCLASS()
@@ -22,5 +23,17 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UStaticMeshComponent* StaticMeshComponent;
+	
+	UPROPERTY(EditAnywhere)
+	float HoverHeight = 50.f;
+
+	UPROPERTY(EditAnywhere)
+	float HoverSpeed = 2.f;
+
+	FVector InitialPosition;
 
 };
